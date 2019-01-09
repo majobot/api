@@ -108,15 +108,12 @@ export interface Message {
 
 /**
  * Represents a client for a messaging service.
+ *
+ * A default constructor is necessary, so clients can be created without having to know their dependencies.
+ *
+ * Dependencies should be fetched in the boot() method.
  */
 export interface PlatformClient extends Bootable {
-  /**
-   * A default constructor, so clients can be created without having to know their dependencies.
-   *
-   * Dependencies should be fetched in the boot() method.
-   */
-  new (): PlatformClient;
-
   /**
    * Returns a Channel instance with the provided name.
    * If the channel is not present in the subscribed channels,
