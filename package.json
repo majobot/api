@@ -1,0 +1,26 @@
+{
+  "name": "@majobot/api",
+  "version": "0.1.0",
+  "description": "The API of majobot.",
+  "main": "index.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/majobot/api.git"
+  },
+  "keywords": [
+    "majobot",
+    "api"
+  ],
+  "author": "Jörn Neumeyer",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/majobot/api/issues"
+  },
+  "homepage": "https://github.com/majobot/api#readme"
+}
