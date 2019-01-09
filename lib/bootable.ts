@@ -6,8 +6,6 @@ export type BootableState = 'uninitialized' | 'boot' | 'initialized' | 'teardown
  * E.g. fetching remote information.
  */
 export interface Bootable {
-  new(): any;
-
   /**
    * Starts the initialization of the Bootable.
    *
