@@ -106,8 +106,6 @@ export interface Message {
 
 
 
-export type PlatformClientType = 'line' | 'message';
-
 /**
  * Represents a client for a messaging service.
  */
@@ -159,7 +157,6 @@ export interface PlatformClient extends Bootable {
    * @param event The event to add the callback to.
    * @param callback The handler of the event.
    */
-  on(event: PlatformClientType, callback: Function): PlatformClient;
   on(event: 'line', callback: (line: string) => (any | Promise<any>)): PlatformClient;
   on(event: 'message', callback: (message: Message) => (any | Promise<any>)): PlatformClient;
 
@@ -179,7 +176,7 @@ export interface PlatformClient extends Bootable {
    * @param event The event to remove the listener from.
    * @param listener The listener to remove.
    */
-  removeListener(event: PlatformClientType, listener: Function): PlatformClient;
+  removeListener(event: 'line' | 'message', listener: Function): PlatformClient;
 
   /**
    * The name of the client's vendor.
