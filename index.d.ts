@@ -48,6 +48,11 @@ export interface Channel {
   name(): string;
 
   /**
+   * The platform of the current channel.
+   */
+  platform(): PlatformClient;
+
+  /**
    * Send a message to the current channel.
    * @param message The message to send.
    */
