@@ -1,6 +1,110 @@
-import {Bootable} from "./bootable";
-import {Channel} from "./channel";
-import {Message} from "./message";
+export type BootableState = 'uninitialized' | 'boot' | 'initialized' | 'teardown' | 'destructed' | 'error';
+
+/**
+ * Represents an entity, which lazy-loads its dependencies on its own.
+ *
+ * E.g. fetching remote information.
+ */
+export interface Bootable {
+  /**
+   * Starts the initialization of the Bootable.
+   *
+   * The Promise indicates the state of the initialization.
+   */
+  boot(): Promise<any>;
+
+  /**
+   * Returns the current state of the bootable.
+   */
+  state(): BootableState;
+
+  /**
+   * Starts the destruction of the Bootable.
+   *
+   * The Promise indicates the state of the destruction.
+   */
+  teardown(): Promise<any>;
+}
+
+
+
+/**
+ * Represents a channel in a messaging service.
+ */
+export interface Channel {
+  /**
+   * Join the current channel.
+   */
+  join(): Promise<any>;
+
+  /**
+   * Leave the current channel.
+   */
+  leave(): Promise<any>;
+
+  /**
+   * The name of the current channel.
+   */
+  name(): string;
+
+  /**
+   * Send a message to the current channel.
+   * @param message The message to send.
+   */
+  sendMessage(message: string): Promise<any>;
+}
+
+
+
+/**
+ * Represents a command which can be used/invoked by users in the chat.
+ */
+export interface Command extends Bootable {
+  /**
+   * The name of the command.
+   */
+  name(): string;
+
+  /**
+   * Processes the given message according to the command.
+   * @param message
+   */
+  process(message: Message): Promise<any>;
+
+  /**
+   * The Command vendor's name.
+   */
+  vendor(): string;
+}
+
+
+
+/**
+ * Represents a received message.
+ */
+export interface Message {
+  /**
+   * The channel to which the message has been sent.
+   */
+  channel(): Channel;
+
+  /**
+   * The content of the message.
+   */
+  content(): string;
+
+  /**
+   * A collection of the users mentioned in the message.
+   */
+  mentionedUsers(): Array<string>;
+
+  /**
+   * The (user-)name of the user who sent the message.
+   */
+  senderName(): string;
+}
+
+
 
 export type PlatformClientType = 'line' | 'message';
 

@@ -2,7 +2,7 @@
   "name": "@majobot/api",
   "version": "0.1.0",
   "description": "The API of majobot.",
-  "main": "index.ts",
+  "main": "index.d.ts",
   "directories": {
     "lib": "lib"
   },
