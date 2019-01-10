@@ -21,7 +21,7 @@ export interface PlatformClient extends Bootable {
   channel(name: string): Channel;
 
   /**
-   * Holds a reference of all channels That have bee visited by the PlatformClient.
+   * Holds a reference of all channels which have been visited by the PlatformClient.
    */
   channelRegister(): Set<Channel>;
 
