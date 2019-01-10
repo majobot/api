@@ -23,7 +23,7 @@ export interface PlatformClient extends Bootable {
   /**
    * Holds a reference of all channels which have been visited by the PlatformClient.
    */
-  channelRegister(): Set<Channel>;
+  channelRegister(): Array<Channel>;
 
   /**
    * Connects the client to its corresponding, configured server.
