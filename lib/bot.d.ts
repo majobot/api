@@ -11,7 +11,7 @@ export interface Bot extends Bootable {
   registerPlatformClient(client: new() => PlatformClient): Bot;
 
   /**
-   * Returns an array containing all registered and booted PlatformClients available to the bot.
+   * Returns an array containing all registered, booted and connected PlatformClients available to the bot.
    */
   bootedPlatformClients(): Array<PlatformClient>;
 
@@ -26,7 +26,9 @@ export interface Bot extends Bootable {
   /**
    * Boots a previously registered PlatformClient.
    *
-   * This method shall return the boot promise of the PlatformClient.
+   * This method shall boot and connect the specified PlatformClient.
+   *
+   * This method shall return the connect promise of the PlatformClient.
    *
    * The boot of an unregistered PlatformClient shall throw an Error.
    * @param client
