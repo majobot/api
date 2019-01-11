@@ -11,6 +11,11 @@ export interface Bot extends Bootable {
   registerPlatformClient(client: new() => PlatformClient): Bot;
 
   /**
+   * Returns an array containing all registered and booted PlatformClients available to the bot.
+   */
+  bootedPlatformClients(): Array<PlatformClient>;
+
+  /**
    * Unregisters a PlatformClient so it may no longer be bootable by the bot.
    *
    * An unregistering of a PlatformClient shall also lead to a teardown invocation, in case it has been booted.
