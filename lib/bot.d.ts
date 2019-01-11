@@ -39,5 +39,5 @@ export interface Bot extends Bootable {
   /**
    * Returns an array containing all registered PlatformClients.
    */
-  registeredPlatformClients(): Array<PlatformClient>;
+  registeredPlatformClients(): Array<new() => PlatformClient>;
 }
