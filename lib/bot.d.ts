@@ -37,6 +37,14 @@ export interface Bot extends Bootable {
   bootPlatformClient(client: new() => PlatformClient): Promise<any>;
 
   /**
+   * Causes a teardown on a running instance of the specified PlatformClient.
+   *
+   * The teardown of an unbooted PlatformClient shall not throw an error.
+   * @param client
+   */
+  teardownPlatformClient(client: new() => PlatformClient): Promise<any>;
+
+  /**
    * Returns an array containing all registered PlatformClients.
    */
   registeredPlatformClients(): Array<new() => PlatformClient>;
