@@ -30,6 +30,8 @@ export interface PlatformClient extends Bootable {
    * Host and port parameter may be provided through configurations
    * but are not guaranteed to be provided.
    *
+   * This method shall be called after the boot of the PlatformClient.
+   *
    * Fallback default values of exceptions should be in place for such a scenario.
    * @param username The username to authenticate with at the remote server.
    * @param password The password to authenticate with at the remote server.
